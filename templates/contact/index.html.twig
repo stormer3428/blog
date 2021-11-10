@@ -14,8 +14,6 @@
     <ul>
         <li>Vous essayez de contacter {{ city }}</li>
     </ul>
-        <a href={{ path("contact") }}>Contact</a><br>
-        <a href="{{ path("home") }}">Home</a><br>
     {% else %}
         <a href={{ path("contactWithCity",{city:"Montpellier"}) }}>Contacter Montpellier</a><br>
         <a href={{ path("contactWithCity",{city:"Dijon"}) }}>Contacter Dijon</a><br>
