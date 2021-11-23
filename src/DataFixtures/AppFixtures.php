@@ -18,17 +18,14 @@ class AppFixtures extends Fixture
         $contact->setMessage("Lorem ipsum sit dolor amet");
         $contact->setSujet("message de test");
 
+        $manager->persist($contact);
+
         $article = new Article();
         $article->setNom("Le communisme est-il benefique?");
         $article->setContenu("oui");
         $article->setSlug("/articles/communisme");
 
-        $manager->persist($contact);
         $manager->persist($article);
-
-        $manager->flush();
-        // $product = new Product();
-        // $manager->persist($product);
 
         $manager->flush();
     }
