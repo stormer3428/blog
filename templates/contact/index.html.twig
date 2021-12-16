@@ -11,10 +11,45 @@
 <div class="example-wrapper">
     <h1>Hello Charles! ✅</h1>
     {% if contacts is defined %}
-        {{ dump(contacts) }}
+        <ul>
+            {% for contact in contacts %}
+                <li>
+                    <a href="{{ path("contactId",{id:contact.id}) }}"> {{ contact.nom }} {{ contact.prenom }}</a>
+                </li>
+            {% endfor %}
+        </ul>
     {% endif %}
-    {% if id is defined %}
-        {{ dump(id) }}
+    {% if contact is defined %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Sujet</th>
+                    <th>Message</th>
+                    <th>Newsletter</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> {{ contact.id }} </td>
+                    <td> {{ contact.nom }} </td>
+                    <td> {{ contact.prenom }} </td>
+                    <td> {{ contact.email }} </td>
+                    <td> {{ contact.sujet }} </td>
+                    <td> {{ contact.message }} </td>
+                    <td>
+                        {% if contact.newsletter %}
+                            Oui
+                        {% else %}
+                            Non
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     {% endif %}
 </div>
 {% endblock %}
