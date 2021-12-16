@@ -10,13 +10,11 @@
 
 <div class="example-wrapper">
     <h1>Hello Charles! ✅</h1>
-    {% if city is defined %}
-    <ul>
-        <li>Vous essayez de contacter {{ city }}</li>
-    </ul>
-    {% else %}
-        <a href={{ path("contactWithCity",{city:"Montpellier"}) }}>Contacter Montpellier</a><br>
-        <a href={{ path("contactWithCity",{city:"Dijon"}) }}>Contacter Dijon</a><br>
+    {% if contacts is defined %}
+        {{ dump(contacts) }}
+    {% endif %}
+    {% if id is defined %}
+        {{ dump(id) }}
     {% endif %}
 </div>
 {% endblock %}
